@@ -1,8 +1,8 @@
-# Mateus Martins Peres
+# Mateus Martins Peres, Gustavo Rodrigues de Oliveira
 
-## Atividade 5 - HTML e CSS
+## Projeto: Trabalho Final
 
-Este projeto faz parte da Atividade 5 da disciplina de Desenvolvimento Web.  
+Este projeto faz parte do Trabalho Final da disciplina de Desenvolvimento Web.  
 Requisitos principais:
 - Mínimo de 4 páginas HTML, com navegação padronizada.
 - Todo CSS em um único arquivo na pasta `css`.
