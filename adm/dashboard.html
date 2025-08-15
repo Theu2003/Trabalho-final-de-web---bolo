@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo - Bolo na Hora</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body class="admin-dashboard">
+    <header class="admin-header">
+        <div class="logo">
+            <img src="../images/logo.png" alt="Bolo na Hora">
+            <span>Painel Administrativo</span>
+        </div>
+        <nav class="user-menu">
+            <span>Olá, Admin</span>
+            <a href="#" id="logout">Sair</a>
+        </nav>
+    </header>
+    
+    <aside class="sidebar">
+        <nav>
+            <ul>
+                <li class="active"><a href="dashboard.html"><i class="icon-dashboard"></i> Dashboard</a></li>
+                <li><a href="../adm/receitas/listar.html"><i class="icon-receitas"></i> Receitas</a></li>
+                <li><a href="../adm/confeiteiros/listar.html"><i class="icon-confeiteiros"></i> Confeiteiros</a></li>
+                <li><a href="#"><i class="icon-config"></i> Configurações</a></li>
+            </ul>
+        </nav>
+    </aside>
+    
+    <main class="content">
+        <h1>Dashboard</h1>
+        
+        <div class="stats-container">
+            <div class="stat-card">
+                <h3>Receitas Cadastradas</h3>
+                <span class="stat-value">42</span>
+                <a href="../adm/receitas/listar.html" class="stat-link">Ver todas</a>
+            </div>
+            
+            <div class="stat-card">
+                <h3>Confeiteiros Ativos</h3>
+                <span class="stat-value">15</span>
+                <a href="../adm/confeiteiros/listar.html" class="stat-link">Ver todos</a>
+            </div>
+            
+            <div class="stat-card">
+                <h3>Novos Pedidos</h3>
+                <span class="stat-value">3</span>
+                <a href="#" class="stat-link">Ver pedidos</a>
+            </div>
+        </div>
+        
+        <div class="recent-activity">
+            <h2>Atividade Recente</h2>
+            <ul class="activity-list">
+                <li>
+                    <span class="activity-time">10 min atrás</span>
+                    <span class="activity-text">Novo confeiteiro cadastrado: "Doces da Maria"</span>
+                </li>
+                <li>
+                    <span class="activity-time">1 hora atrás</span>
+                    <span class="activity-text">Receita "Bolo de Chocolate" foi atualizada</span>
+                </li>
+                <li>
+                    <span class="activity-time">3 horas atrás</span>
+                    <span class="activity-text">Novo pedido realizado por João Silva</span>
+                </li>
+            </ul>
+        </div>
+    </main>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

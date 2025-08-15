@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Receita - Bolo na Hora</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body class="admin-dashboard">
+    <header class="admin-header">
+        <div class="logo">
+            <img src="../../images/logo.png" alt="Bolo na Hora">
+            <span>Painel Administrativo</span>
+        </div>
+        <nav class="user-menu">
+            <span>Olá, Admin</span>
+            <a href="#" id="logout">Sair</a>
+        </nav>
+    </header>
+    
+    <aside class="sidebar">
+        <nav>
+            <ul>
+                <li><a href="../dashboard.html"><i class="icon-dashboard"></i> Dashboard</a></li>
+                <li class="active"><a href="listar.html"><i class="icon-receitas"></i> Receitas</a></li>
+                <li><a href="../confeiteiros/listar.html"><i class="icon-confeiteiros"></i> Confeiteiros</a></li>
+                <li><a href="#"><i class="icon-config"></i> Configurações</a></li>
+            </ul>
+        </nav>
+    </aside>
+    
+    <main class="content">
+        <div class="page-header">
+            <h1>Adicionar Nova Receita</h1>
+            <a href="listar.html" class="btn btn-secondary">Voltar</a>
+        </div>
+        
+        <form id="addRecipeForm" class="admin-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="recipeName">Nome da Receita*</label>
+                    <input type="text" id="recipeName" name="recipeName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="recipeCategory">Categoria*</label>
+                    <select id="recipeCategory" name="recipeCategory" required>
+                        <option value="">Selecione...</option>
+                        <option value="chocolate">Chocolate</option>
+                        <option value="frutas">Frutas</option>
+                        <option value="cremes">Cremes</option>
+                        <option value="festivos">Festivos</option>
+                        <option value="saudaveis">Saudáveis</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="recipeDifficulty">Dificuldade*</label>
+                    <select id="recipeDifficulty" name="recipeDifficulty" required>
+                        <option value="">Selecione...</option>
+                        <option value="facil">Fácil</option>
+                        <option value="medio">Médio</option>
+                        <option value="dificil">Difícil</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="recipeTime">Tempo de Preparo (min)*</label>
+                    <input type="number" id="recipeTime" name="recipeTime" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="recipeImage">Imagem da Receita</label>
+                <input type="file" id="recipeImage" name="recipeImage" accept="image/*">
+                <small>Recomendado: 800x600px, formato JPG ou PNG</small>
+            </div>
+            
+            <div class="form-group">
+                <label for="recipeDescription">Descrição*</label>
+                <textarea id="recipeDescription" name="recipeDescription" rows="3" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Ingredientes*</label>
+                <div id="ingredientsContainer">
+                    <div class="ingredient-row">
+                        <input type="text" name="ingredient[]" placeholder="Ex: 2 xícaras de farinha de trigo" required>
+                        <button type="button" class="btn btn-remove-ingredient">-</button>
+                    </div>
+                </div>
+                <button type="button" id="addIngredient" class="btn btn-secondary">Adicionar Ingrediente</button>
+            </div>
+            
+            <div class="form-group">
+                <label>Modo de Preparo*</label>
+                <div id="stepsContainer">
+                    <div class="step-row">
+                        <textarea name="step[]" placeholder="Descreva o passo a passo" required></textarea>
+                        <button type="button" class="btn btn-remove-step">-</button>
+                    </div>
+                </div>
+                <button type="button" id="addStep" class="btn btn-secondary">Adicionar Passo</button>
+            </div>
+            
+            <div class="form-group">
+                <label for="recipeStatus">Status*</label>
+                <select id="recipeStatus" name="recipeStatus" required>
+                    <option value="active">Ativo</option>
+                    <option value="inactive">Inativo</option>
+                </select>
+            </div>
+            
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Salvar Receita</button>
+                <button type="reset" class="btn btn-secondary">Limpar</button>
+            </div>
+        </form>
+    </main>
+
+    <script src="../js/admin.js"></script>
+    <script src="../js/recipes.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Confeiteiro - Bolo na Hora</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body class="admin-dashboard">
+    <!-- Cabeçalho e sidebar iguais às outras páginas -->
+    
+    <main class="content">
+        <div class="page-header">
+            <h1>Editar Confeiteiro</h1>
+            <a href="listar.html" class="btn btn-secondary">Voltar</a>
+        </div>
+        
+        <form id="editBakerForm" class="admin-form">
+            <div class="form-preview">
+                <img src="../../images/confeiteiro1.jpg" alt="Pré-visualização" id="bakerPreview" class="photo-preview-large">
+                <div class="preview-info">
+                    <h2 id="bakerPreviewName">Maria Silva</h2>
+                    <p id="bakerPreviewBusiness">Doces da Maria</p>
+                    <div class="preview-meta">
+                        <span id="bakerPreviewContact">maria@doces.com | (38) 99999-9999</span>
+                        <span id="bakerPreviewSpecialties">Bolos de casamento, Doces finos</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Campos de formulário iguais à página de adicionar, mas preenchidos -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="bakerName">Nome Completo*</label>
+                    <input type="text" id="bakerName" name="bakerName" value="Maria Silva" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="bakerBusiness">Nome do Negócio</label>
+                    <input type="text" id="bakerBusiness" name="bakerBusiness" value="Doces da Maria">
+                </div>
+            </div>
+            
+            <!-- Restante dos campos preenchidos -->
+            
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Atualizar Confeiteiro</button>
+                <button type="button" id="deleteBaker" class="btn btn-delete">Excluir Confeiteiro</button>
+            </div>
+        </form>
+    </main>
+
+    <script src="../js/admin.js"></script>
+    <script src="../js/bakers.js"></script>
+</body>
+</html>

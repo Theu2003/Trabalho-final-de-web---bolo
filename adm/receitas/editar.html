@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Receita - Bolo na Hora</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body class="admin-dashboard">
+    <!-- Cabeçalho e sidebar iguais às outras páginas -->
+    
+    <main class="content">
+        <div class="page-header">
+            <h1>Editar Receita</h1>
+            <a href="listar.html" class="btn btn-secondary">Voltar</a>
+        </div>
+        
+        <form id="editRecipeForm" class="admin-form">
+            <div class="form-preview">
+                <img src="../../images/bolo-chocolate.jpg" alt="Bolo de Chocolate" id="recipePreview">
+                <div class="preview-info">
+                    <h2 id="previewTitle">Bolo de Chocolate</h2>
+                    <p id="previewDescription">Um delicioso bolo de chocolate para todas as ocasiões</p>
+                    <div class="preview-meta">
+                        <span id="previewTime">45 min</span>
+                        <span id="previewDifficulty">Fácil</span>
+                        <span id="previewCategory">Chocolate</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Campos de formulário iguais à página de adicionar, mas preenchidos -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="recipeName">Nome da Receita*</label>
+                    <input type="text" id="recipeName" name="recipeName" value="Bolo de Chocolate" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="recipeCategory">Categoria*</label>
+                    <select id="recipeCategory" name="recipeCategory" required>
+                        <option value="chocolate" selected>Chocolate</option>
+                        <!-- Outras opções -->
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Restante dos campos preenchidos -->
+            
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Atualizar Receita</button>
+                <button type="button" id="deleteRecipe" class="btn btn-delete">Excluir Receita</button>
+            </div>
+        </form>
+    </main>
+
+    <script src="../js/admin.js"></script>
+    <script src="../js/recipes.js"></script>
+</body>
+</html>
