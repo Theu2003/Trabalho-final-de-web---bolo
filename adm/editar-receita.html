@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Editar Receita — Painel Administrativo</title>
+    <link rel="stylesheet" href="../CSS/style.css" />
+    <link rel="stylesheet" href="../CSS/admin.css" />
+    <script src="../JS/admin-forms.js" defer></script>
+</head>
+<body class="admin-page">
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="../index.html" class="logo" aria-label="Receitas de Bolo — voltar ao início">Receitas de Bolo</a>
+            <nav aria-label="Navegação principal">
+                <ul class="main-nav">
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="../receitas.html">Receitas</a></li>
+                    <li><a href="../contato.html">Contato</a></li>
+                    <li><a href="logout.html">Sair</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <div class="admin-header">
+            <h1>Editar Receita</h1>
+            <nav class="breadcrumb">
+                <a href="adm.html">Painel</a> > 
+                <a href="gerenciar-receitas.html">Receitas</a> > 
+                <span>Editar</span>
+            </nav>
+        </div>
+
+        <form id="recipeForm" class="recipe-form">
+            <input type="hidden" id="recipe-id" value="1">
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="recipe-title">Título da Receita <span class="required">*</span></label>
+                    <input type="text" id="recipe-title" name="recipe-title" required value="Bolo de Chocolate Premium">
+                </div>
+                
+                <div class="form-group">
+                    <label for="recipe-category">Categoria <span class="required">*</span></label>
+                    <select id="recipe-category" name="recipe-category" required>
+                        <option value="chocolate" selected>Chocolate</option>
+                        <option value="frutas">Frutas</option>
+                        <option value="festas">Festas</option>
+                        <option value="saudavel">Saudável</option>
+                        <option value="classicos">Clássicos</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="recipe-description">Descrição Curta <span class="required">*</span></label>
+                <textarea id="recipe-description" name="recipe-description" required>Um clássico irresistível com cobertura cremosa e massa fofa, perfeito para qualquer ocasião.</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="recipe-image">Imagem da Receita</label>
+                <div class="current-image">
+                    <img src="../images/bolo_de_chocolate.jpg" alt="Imagem atual" style="max-width: 200px; display: block; margin-bottom: 10px;">
+                    <input type="file" id="recipe-image" name="recipe-image" accept="image/*">
+                    <small>Deixe em branco para manter a imagem atual</small>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="prep-time">Tempo de Preparo (min) <span class="required">*</span></label>
+                    <input type="number" id="prep-time" name="prep-time" required min="1" value="30">
+                </div>
+                
+                <div class="form-group">
+                    <label for="servings">Rendimento (porções) <span class="required">*</span></label>
+                    <input type="number" id="servings" name="servings" required min="1" value="8">
+                </div>
+                
+                <div class="form-group">
+                    <label for="difficulty">Dificuldade <span class="required">*</span></label>
+                    <select id="difficulty" name="difficulty" required>
+                        <option value="facil">Fácil</option>
+                        <option value="medio" selected>Médio</option>
+                        <option value="dificil">Difícil</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Ingredientes</h3>
+                <div id="ingredients-container">
+                    <div class="ingredient-group">
+                        <div class="form-row">
+                            <div class="form-group" style="flex: 3;">
+                                <label>Ingrediente <span class="required">*</span></label>
+                                <input type="text" name="ingredient[]" required value="Farinha de trigo">
+                            </div>
+                            <div class="form-group" style="flex: 1;">
+                                <label>Quantidade</label>
+                                <input type="text" name="quantity[]" value="2 xícaras">
+                            </div>
+                            <div class="form-group" style="flex: 0 0 40px; align-self: flex-end;">
+                                <button type="button" class="btn btn-remove" onclick="removeIngredient(this)" style="width: 100%;">-</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ingredient-group">
+                        <div class="form-row">
+                            <div class="form-group" style="flex: 3;">
+                                <label>Ingrediente <span class="required">*</span></label>
+                                <input type="text" name="ingredient[]" required value="Açúcar">
+                            </div>
+                            <div class="form-group" style="flex: 1;">
+                                <label>Quantidade</label>
+                                <input type="text" name="quantity[]" value="1 xícara">
+                            </div>
+                            <div class="form-group" style="flex: 0 0 40px; align-self: flex-end;">
+                                <button type="button" class="btn btn-remove" onclick="removeIngredient(this)" style="width: 100%;">-</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" id="add-ingredient" class="btn btn-secondary">+ Adicionar Ingrediente</button>
+            </div>
+
+            <div class="form-section">
+                <h3>Modo de Preparo <span class="required">*</span></h3>
+                <div id="instructions-container">
+                    <div class="instruction-group">
+                        <div class="form-row">
+                            <div class="form-group" style="flex: 1;">
+                                <label>Passo 1</label>
+                                <textarea name="instruction[]" required>Pré-aqueça o forno a 180°C. Unte e enfarinhe uma forma de bolo.</textarea>
+                            </div>
+                            <div class="form-group" style="flex: 0 0 40px; align-self: flex-end;">
+                                <button type="button" class="btn btn-remove" onclick="removeInstruction(this)" style="width: 100%;">-</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="instruction-group">
+                        <div class="form-row">
+                            <div class="form-group" style="flex: 1;">
+                                <label>Passo 2</label>
+                                <textarea name="instruction[]" required>Em uma tigela, misture os ingredientes secos: farinha, açúcar e cacau em pó.</textarea>
+                            </div>
+                            <div class="form-group" style="flex: 0 0 40px; align-self: flex-end;">
+                                <button type="button" class="btn btn-remove" onclick="removeInstruction(this)" style="width: 100%;">-</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" id="add-instruction" class="btn btn-secondary">+ Adicionar Passo</button>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-save">Salvar Alterações</button>
+                <button type="button" class="btn btn-cancel" onclick="window.location.href='gerenciar-receitas.html'">Cancelar</button>
+                <button type="button" class="btn btn-preview">Visualizar</button>
+            </div>
+        </form>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>© <span id="ano"></span> Receitas de Bolo — Painel Administrativo</p>
+            <nav aria-label="Links do rodapé">
+                <ul class="footer-nav">
+                    <li><a href="../index.html">Voltar ao Site</a></li>
+                    <li><a href="configuracoes.html">Configurações</a></li>
+                    <li><a href="ajuda.html">Ajuda</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mensagem — Painel Administrativo</title>
+    <link rel="stylesheet" href="../CSS/style.css" />
+    <link rel="stylesheet" href="../CSS/admin.css" />
+    <script src="../JS/admin-messages.js" defer></script>
+</head>
+<body class="admin-page">
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="../index.html" class="logo" aria-label="Receitas de Bolo — voltar ao início">Receitas de Bolo</a>
+            <nav aria-label="Navegação principal">
+                <ul class="main-nav">
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="../receitas.html">Receitas</a></li>
+                    <li><a href="../contato.html">Contato</a></li>
+                    <li><a href="logout.html">Sair</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <div class="admin-header">
+            <h1>Visualizar Mensagem</h1>
+            <nav class="breadcrumb">
+                <a href="adm.html">Painel</a> > 
+                <a href="mensagens.html">Mensagens</a> > 
+                <span>Detalhes</span>
+            </nav>
+        </div>
+
+        <div class="message-detail">
+            <div class="message-header">
+                <h2 class="message-subject">Dúvida sobre ingrediente</h2>
+                <div class="message-meta">
+                    <div class="meta-item">
+                        <strong>De:</strong> Maria Silva &lt;maria@email.com&gt;
+                    </div>
+                    <div class="meta-item">
+                        <strong>Data:</strong> Hoje, 10:32
+                    </div>
+                    <div class="meta-item">
+                        <strong>Categoria:</strong> Dúvida
+                    </div>
+                    <div class="meta-item">
+                        <strong>Status:</strong> <span class="status-badge new">Nova</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="message-content">
+                <p>Olá, equipe Receitas de Bolo!</p>
+                
+                <p>Gostaria de saber se posso substituir o fermento químico por fermento biológico na receita de bolo de chocolate. Tenho alguns tabletes de fermento biológico fresco em casa e gostaria de utilizá-los.</p>
+                
+                <p>Outra dúvida: qual seria a proporção adequada para essa substituição? Na receita original são 2 colheres de chá de fermento químico.</p>
+                
+                <p>Agradeço desde já pela atenção!</p>
+                
+                <p>Atenciosamente,<br>Maria Silva</p>
+            </div>
+
+            <div class="message-actions">
+                <button class="btn btn-mark-read" data-id="1">Marcar como lida</button>
+                <button class="btn btn-reply">Responder</button>
+                <button class="btn btn-archive" data-id="1">Arquivar</button>
+                <button class="btn btn-delete" data-id="1">Excluir</button>
+                <a href="mensagens.html" class="btn btn-back">Voltar</a>
+            </div>
+
+            <div class="reply-section" style="display: none;">
+                <h3>Responder Mensagem</h3>
+                <form id="replyForm">
+                    <div class="form-group">
+                        <label for="reply-subject">Assunto</label>
+                        <input type="text" id="reply-subject" value="Re: Dúvida sobre ingrediente">
+                    </div>
+                    <div class="form-group">
+                        <label for="reply-message">Mensagem <span class="required">*</span></label>
+                        <textarea id="reply-message" required rows="6"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-send">Enviar Resposta</button>
+                        <button type="button" class="btn btn-cancel-reply">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>© <span id="ano"></span> Receitas de Bolo — Painel Administrativo</p>
+            <nav aria-label="Links do rodapé">
+                <ul class="footer-nav">
+                    <li><a href="../index.html">Voltar ao Site</a></li>
+                    <li><a href="configuracoes.html">Configurações</a></li>
+                    <li><a href="ajuda.html">Ajuda</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>

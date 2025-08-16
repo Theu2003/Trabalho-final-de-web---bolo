@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Configurações — Painel Administrativo</title>
+    <link rel="stylesheet" href="../CSS/style.css" />
+    <link rel="stylesheet" href="../CSS/admin.css" />
+    <script src="../JS/admin-settings.js" defer></script>
+</head>
+<body class="admin-page">
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="../index.html" class="logo" aria-label="Receitas de Bolo — voltar ao início">Receitas de Bolo</a>
+            <nav aria-label="Navegação principal">
+                <ul class="main-nav">
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="../receitas.html">Receitas</a></li>
+                    <li><a href="../contato.html">Contato</a></li>
+                    <li><a href="logout.html">Sair</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <div class="admin-header">
+            <h1>Configurações do Sistema</h1>
+            <nav class="breadcrumb">
+                <a href="adm.html">Painel</a> > <span>Configurações</span>
+            </nav>
+        </div>
+
+        <div class="settings-tabs">
+            <div class="tabs-header">
+                <button class="tab-btn active" data-tab="general">Geral</button>
+                <button class="tab-btn" data-tab="users">Usuários</button>
+                <button class="tab-btn" data-tab="email">E-mail</button>
+                <button class="tab-btn" data-tab="seo">SEO</button>
+                <button class="tab-btn" data-tab="backup">Backup</button>
+            </div>
+
+            <div class="tab-content active" id="general-tab">
+                <form id="generalSettings">
+                    <div class="form-group">
+                        <label for="site-name">Nome do Site</label>
+                        <input type="text" id="site-name" value="Receitas de Bolo">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="site-description">Descrição do Site</label>
+                        <textarea id="site-description">Receitas de bolo caseiras: passo a passo, ingredientes e dicas para bolos deliciosos.</textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="site-logo">Logo do Site</label>
+                        <input type="file" id="site-logo" accept="image/*">
+                        <small>Formatos aceitos: JPG, PNG (máx. 2MB)</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="maintenance-mode">Modo Manutenção</label>
+                        <select id="maintenance-mode">
+                            <option value="0">Desativado</option>
+                            <option value="1">Ativado</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-save">Salvar Configurações</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="tab-content" id="users-tab">
+                <h3>Gerenciamento de Usuários</h3>
+                <div class="users-list">
+                </div>
+                <button class="btn btn-admin" id="add-user">Adicionar Usuário</button>
+            </div>
+
+            <div class="tab-content" id="email-tab">
+                <form id="emailSettings">
+                    <div class="form-group">
+                        <label for="email-from">E-mail do Remetente</label>
+                        <input type="email" id="email-from" value="contato@receitasdebolo.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email-name">Nome do Remetente</label>
+                        <input type="text" id="email-name" value="Receitas de Bolo">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="smtp-host">Servidor SMTP</label>
+                        <input type="text" id="smtp-host" value="smtp.receitasdebolo.com">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="smtp-port">Porta SMTP</label>
+                            <input type="number" id="smtp-port" value="587">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="smtp-security">Segurança</label>
+                            <select id="smtp-security">
+                                <option value="tls">TLS</option>
+                                <option value="ssl">SSL</option>
+                                <option value="none">Nenhuma</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="smtp-user">Usuário SMTP</label>
+                        <input type="text" id="smtp-user" value="contato@receitasdebolo.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="smtp-pass">Senha SMTP</label>
+                        <input type="password" id="smtp-pass" placeholder="••••••••">
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-save">Salvar Configurações</button>
+                        <button type="button" class="btn btn-test">Testar Configuração</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="tab-content" id="seo-tab">
+                <form id="seoSettings">
+                    <div class="form-group">
+                        <label for="meta-title">Meta Título Padrão</label>
+                        <input type="text" id="meta-title" value="Receitas de Bolo">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="meta-description">Meta Descrição Padrão</label>
+                        <textarea id="meta-description">Receitas de bolo caseiras: passo a passo, ingredientes e dicas para bolos deliciosos.</textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="meta-keywords">Palavras-chave</label>
+                        <input type="text" id="meta-keywords" value="receitas, bolo, doces, sobremesas">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="google-analytics">Código do Google Analytics</label>
+                        <textarea id="google-analytics" rows="4"></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-save">Salvar Configurações</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="tab-content" id="backup-tab">
+                <div class="backup-options">
+                    <div class="backup-card">
+                        <h3>Criar Backup</h3>
+                        <p>Crie um backup completo do sistema incluindo banco de dados e arquivos.</p>
+                        <button class="btn btn-backup">Gerar Backup</button>
+                    </div>
+                    
+                    <div class="backup-card">
+                        <h3>Restaurar Backup</h3>
+                        <p>Selecione um arquivo de backup para restaurar o sistema.</p>
+                        <input type="file" id="backup-file" accept=".zip,.sql">
+                        <button class="btn btn-restore">Restaurar</button>
+                    </div>
+                </div>
+                
+                <div class="backup-list">
+                    <h3>Backups Disponíveis</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Tamanho</th>
+                                <th>Tipo</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>15/08/2023 10:30</td>
+                                <td>15.4 MB</td>
+                                <td>Completo</td>
+                                <td>
+                                    <button class="btn btn-download">Download</button>
+                                    <button class="btn btn-delete">Excluir</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>© <span id="ano"></span> Receitas de Bolo — Painel Administrativo</p>
+            <nav aria-label="Links do rodapé">
+                <ul class="footer-nav">
+                    <li><a href="../index.html">Voltar ao Site</a></li>
+                    <li><a href="configuracoes.html">Configurações</a></li>
+                    <li><a href="ajuda.html">Ajuda</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>
