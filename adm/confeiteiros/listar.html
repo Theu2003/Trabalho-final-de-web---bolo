@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Confeiteiros - Bolo na Hora</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+</head>
+<body class="admin-page">
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="../../index.html" class="logo">Bolo na Hora</a>
+            <nav>
+                <ul class="main-nav">
+                    <li><a href="../adm.html">Painel</a></li>
+                    <li><a href="../gerenciar-receitas.html">Receitas</a></li>
+                    <li><a href="listar.html" class="active">Confeiteiros</a></li>
+                    <li><a href="../logout.html">Sair</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <div class="admin-header">
+            <h1>Gerenciar Confeiteiros</h1>
+            <a href="adicionar.html" class="btn btn-admin">+ Adicionar Confeiteiro</a>
+        </div>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Nome do Negócio</th>
+                    <th>Responsável</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="bakers-table-body">
+                </tbody>
+        </table>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>© <span id="ano"></span> Bolo na Hora — Painel Administrativo</p>
+        </div>
+    </footer>
+    <script src="../../js/adm/admin-confeiteiros.js" defer></script>
+</body>
+</html>

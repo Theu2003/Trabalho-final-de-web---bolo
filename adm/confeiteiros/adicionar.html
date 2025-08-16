@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Confeiteiro - Bolo na Hora</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+</head>
+<body class="admin-page">
+    <header class="site-header">
+         <div class="header-inner">
+            <a href="../../index.html" class="logo">Bolo na Hora</a>
+             <nav><ul class="main-nav"><li><a href="../adm.html">Painel</a></li></ul></nav>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <div class="admin-header">
+            <h1>Adicionar Novo Confeiteiro</h1>
+            <a href="listar.html" class="btn btn-secondary">Voltar para a Lista</a>
+        </div>
+
+        <form id="baker-form" class="recipe-form">
+            <div class="form-group">
+                <label for="businessName">Nome do Negócio*</label>
+                <input type="text" id="businessName" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name">Seu Nome*</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">WhatsApp (somente números)*</label>
+                    <input type="tel" id="phone" required placeholder="38999999999">
+                </div>
+            </div>
+             <div class="form-group">
+                <label for="instagram">Usuário do Instagram</label>
+                <input type="text" id="instagram" placeholder="@seunegocio">
+            </div>
+            <div class="form-group">
+                <label for="bio">Descrição Curta*</label>
+                <textarea id="bio" rows="3" required placeholder="Especialista em bolos de festa, bolos caseiros..."></textarea>
+            </div>
+             <div class="form-row">
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <select id="status">
+                        <option value="active">Ativo (visível no site)</option>
+                        <option value="inactive">Inativo (oculto no site)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                     <label for="featured">Destaque na Página Inicial?</label>
+                    <select id="featured">
+                        <option value="false">Não</option>
+                        <option value="true">Sim</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-save">Salvar Confeiteiro</button>
+            </div>
+        </form>
+    </main>
+    
+    <footer class="site-footer">
+        <div class="footer-inner"><p>© <span id="ano"></span> Bolo na Hora</p></div>
+    </footer>
+    <script src="../../js/adm/admin-confeiteiros.js" defer></script>
+</body>
+</html>
