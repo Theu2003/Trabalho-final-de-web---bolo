@@ -1,8 +1,5 @@
-// JS/script.js
-
 document.addEventListener('DOMContentLoaded', function() {
 
-    // --- Funcionalidade Comum (Ano e Impressão) ---
     const anoElement = document.getElementById('ano');
     if (anoElement) {
         anoElement.textContent = new Date().getFullYear();
@@ -13,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
         printButton.addEventListener('click', () => window.print());
     }
 
-    // --- Lógica de Filtro e Busca (Apenas na página de receitas) ---
     const filterContainer = document.querySelector('.filter-controls');
     const searchInput = document.getElementById('search-input');
     const recipeGrid = document.getElementById('recipe-grid');
@@ -22,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (filterContainer && recipeGrid && searchInput) {
         const recipeCards = recipeGrid.querySelectorAll('.recipe-card');
 
-        // Função principal para atualizar a visualização das receitas
         const filterAndSearchRecipes = () => {
             const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
             const searchTerm = searchInput.value.toLowerCase();
@@ -43,11 +38,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
 
-            // Mostra ou esconde a mensagem de "nenhum resultado"
             noResultsMessage.style.display = visibleCount === 0 ? 'block' : 'none';
         };
 
-        // Adiciona evento de clique aos botões de filtro
         filterContainer.addEventListener('click', (event) => {
             if (event.target.classList.contains('filter-btn')) {
                 document.querySelector('.filter-btn.active').classList.remove('active');
@@ -56,11 +49,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Adiciona evento de digitação ao campo de busca
         searchInput.addEventListener('input', filterAndSearchRecipes);
     }
     
-    // --- Lógica do Botão "Voltar ao Topo" ---
     const backToTopButton = document.getElementById('back-to-top');
 
     if (backToTopButton) {

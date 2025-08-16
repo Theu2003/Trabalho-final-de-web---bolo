@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mensagens — Painel Administrativo</title>
+    <link rel="stylesheet" href="../CSS/style.css" />
+    <link rel="stylesheet" href="../CSS/admin.css" />
+    <script src="../JS/admin-messages.js" defer></script>
+</head>
+<body class="admin-page">
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="../index.html" class="logo" aria-label="Receitas de Bolo — voltar ao início">Receitas de Bolo</a>
+            <nav aria-label="Navegação principal">
+                <ul class="main-nav">
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="../receitas.html">Receitas</a></li>
+                    <li><a href="../contato.html">Contato</a></li>
+                    <li><a href="logout.html">Sair</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <div class="admin-header">
+            <h1>Mensagens Recebidas</h1>
+            <nav class="breadcrumb">
+                <a href="adm.html">Painel</a> > <span>Mensagens</span>
+            </nav>
+        </div>
+
+        <div class="message-filters">
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-filter="all">Todas</button>
+                <button class="filter-btn" data-filter="unread">Não lidas</button>
+                <button class="filter-btn" data-filter="read">Lidas</button>
+                <button class="filter-btn" data-filter="archived">Arquivadas</button>
+            </div>
+            <div class="search-box">
+                <input type="text" id="message-search" placeholder="Buscar mensagens...">
+                <button class="btn btn-search">Buscar</button>
+            </div>
+        </div>
+
+        <div class="messages-list">
+            <!-- Mensagem 1 (não lida) -->
+            <article class="message-card unread">
+                <div class="message-header">
+                    <h3 class="message-subject">Dúvida sobre ingrediente</h3>
+                    <span class="message-date">Hoje, 10:32</span>
+                    <span class="message-status new">Nova</span>
+                </div>
+                <div class="message-meta">
+                    <span class="message-from">Maria Silva &lt;maria@email.com&gt;</span>
+                    <span class="message-category">Dúvida</span>
+                </div>
+                <div class="message-excerpt">
+                    <p>Olá, gostaria de saber se posso substituir o fermento químico por fermento biológico na receita de bolo de chocolate...</p>
+                </div>
+                <div class="message-actions">
+                    <button class="btn btn-mark-read" data-id="1">Marcar como lida</button>
+                    <a href="mensagem.html?id=1" class="btn btn-view">Ver mensagem</a>
+                    <button class="btn btn-archive" data-id="1">Arquivar</button>
+                </div>
+            </article>
+
+            <article class="message-card read">
+                <div class="message-header">
+                    <h3 class="message-subject">Sugestão de receita</h3>
+                    <span class="message-date">Ontem, 15:47</span>
+                    <span class="message-status read">Lida</span>
+                </div>
+                <div class="message-meta">
+                    <span class="message-from">João Santos &lt;joao.santos@email.com&gt;</span>
+                    <span class="message-category">Sugestão</span>
+                </div>
+                <div class="message-excerpt">
+                    <p>Adoro o site de vocês! Gostaria de sugerir uma receita de bolo de abacaxi com coco, seria possível?</p>
+                </div>
+                <div class="message-actions">
+                    <button class="btn btn-mark-unread" data-id="2">Marcar como não lida</button>
+                    <a href="mensagem.html?id=2" class="btn btn-view">Ver mensagem</a>
+                    <button class="btn btn-archive" data-id="2">Arquivar</button>
+                </div>
+            </article>
+
+            <article class="message-card archived">
+                <div class="message-header">
+                    <h3 class="message-subject">Problema com receita</h3>
+                    <span class="message-date">12/08/2023</span>
+                    <span class="message-status archived">Arquivada</span>
+                </div>
+                <div class="message-meta">
+                    <span class="message-from">Ana Oliveira &lt;ana.oliveira@email.com&gt;</span>
+                    <span class="message-category">Problema</span>
+                </div>
+                <div class="message-excerpt">
+                    <p>Tentei fazer o bolo de cenoura mas não cresceu, será que pode ser a farinha que usei?</p>
+                </div>
+                <div class="message-actions">
+                    <button class="btn btn-unarchive" data-id="3">Desarquivar</button>
+                    <a href="mensagem.html?id=3" class="btn btn-view">Ver mensagem</a>
+                    <button class="btn btn-delete" data-id="3">Excluir</button>
+                </div>
+            </article>
+
+            <article class="message-card read">
+                <div class="message-header">
+                    <h3 class="message-subject">Elogio ao site</h3>
+                    <span class="message-date">10/08/2023</span>
+                    <span class="message-status read">Lida</span>
+                </div>
+                <div class="message-meta">
+                    <span class="message-from">Carlos Mendes &lt;carlos.m@email.com&gt;</span>
+                    <span class="message-category">Elogio</span>
+                </div>
+                <div class="message-excerpt">
+                    <p>Parabéns pelo site! As receitas são ótimas e bem explicadas. O bolo de chocolate ficou perfeito!</p>
+                </div>
+                <div class="message-actions">
+                    <button class="btn btn-mark-unread" data-id="4">Marcar como não lida</button>
+                    <a href="mensagem.html?id=4" class="btn btn-view">Ver mensagem</a>
+                    <button class="btn btn-archive" data-id="4">Arquivar</button>
+                </div>
+            </article>
+        </div>
+
+        <div class="pagination">
+            <button class="btn btn-pagination" disabled>Anterior</button>
+            <button class="btn btn-pagination active">1</button>
+            <button class="btn btn-pagination">2</button>
+            <button class="btn btn-pagination">Próxima</button>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>© <span id="ano"></span> Receitas de Bolo — Painel Administrativo</p>
+            <nav aria-label="Links do rodapé">
+                <ul class="footer-nav">
+                    <li><a href="../index.html">Voltar ao Site</a></li>
+                    <li><a href="configuracoes.html">Configurações</a></li>
+                    <li><a href="ajuda.html">Ajuda</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>

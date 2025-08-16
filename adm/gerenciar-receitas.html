@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gerenciar Receitas — Painel Administrativo</title>
+    <link rel="stylesheet" href="../CSS/style.css" />
+    <link rel="stylesheet" href="../CSS/admin.css" />
+    <script src="../JS/admin-recipes.js" defer></script>
+</head>
+<body class="admin-page">
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="../index.html" class="logo" aria-label="Receitas de Bolo — voltar ao início">Receitas de Bolo</a>
+            <nav aria-label="Navegação principal">
+                <ul class="main-nav">
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="../receitas.html">Receitas</a></li>
+                    <li><a href="../contato.html">Contato</a></li>
+                    <li><a href="logout.html">Sair</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <div class="admin-header">
+            <h1>Gerenciar Receitas</h1>
+            <div class="admin-header-actions">
+                <a href="nova-receita.html" class="btn btn-admin">+ Nova Receita</a>
+                <nav class="breadcrumb">
+                    <a href="adm.html">Painel</a> > <span>Gerenciar Receitas</span>
+                </nav>
+            </div>
+        </div>
+
+        <div class="filter-container">
+            <div class="search-box">
+                <input type="text" id="recipe-search" placeholder="Buscar receitas...">
+                <button class="btn btn-search">Buscar</button>
+            </div>
+            <div class="filter-controls">
+                <select id="category-filter">
+                    <option value="">Todas categorias</option>
+                    <option value="chocolate">Chocolate</option>
+                    <option value="frutas">Frutas</option>
+                    <option value="festas">Festas</option>
+                    <option value="saudavel">Saudável</option>
+                    <option value="classicos">Clássicos</option>
+                </select>
+                <select id="sort-by">
+                    <option value="newest">Mais recentes</option>
+                    <option value="oldest">Mais antigas</option>
+                    <option value="az">A-Z</option>
+                    <option value="za">Z-A</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="admin-recipe-grid">
+            <article class="admin-recipe-card">
+                <img src="../images/bolo_de_chocolate.jpg" alt="Bolo de Chocolate">
+                <div class="admin-recipe-info">
+                    <div class="recipe-meta">
+                        <span class="category-badge chocolate">Chocolate</span>
+                        <span class="date">15/08/2023</span>
+                    </div>
+                    <h3>Bolo de Chocolate Premium</h3>
+                    <p class="recipe-excerpt">Um clássico irresistível com cobertura cremosa e massa fofa...</p>
+                    <div class="recipe-stats">
+                        <span><strong>30</strong> min</span>
+                        <span><strong>8</strong> porções</span>
+                        <span class="difficulty medio">Médio</span>
+                    </div>
+                    <div class="recipe-actions">
+                        <a href="editar-receita.html?id=1" class="btn btn-edit">Editar</a>
+                        <button class="btn btn-delete" data-id="1">Excluir</button>
+                        <span class="status published">Publicado</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="admin-recipe-card">
+                <img src="../images/bolo_de_cenoura.jpg" alt="Bolo de Cenoura">
+                <div class="admin-recipe-info">
+                    <div class="recipe-meta">
+                        <span class="category-badge frutas">Frutas</span>
+                        <span class="date">10/08/2023</span>
+                    </div>
+                    <h3>Bolo de Cenoura com Cobertura</h3>
+                    <p class="recipe-excerpt">Simples, rápido e perfeito para o lanche da tarde...</p>
+                    <div class="recipe-stats">
+                        <span><strong>45</strong> min</span>
+                        <span><strong>10</strong> porções</span>
+                        <span class="difficulty facil">Fácil</span>
+                    </div>
+                    <div class="recipe-actions">
+                        <a href="editar-receita.html?id=2" class="btn btn-edit">Editar</a>
+                        <button class="btn btn-delete" data-id="2">Excluir</button>
+                        <span class="status published">Publicado</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="admin-recipe-card">
+                <img src="../images/Bolo_baunilha.jpg" alt="Bolo de Baunilha">
+                <div class="admin-recipe-info">
+                    <div class="recipe-meta">
+                        <span class="category-badge classicos">Clássicos</span>
+                        <span class="date">05/08/2023</span>
+                    </div>
+                    <h3>Bolo de Baunilha com Frutas</h3>
+                    <p class="recipe-excerpt">Leve e perfumado — ideal para festas e recheios variados...</p>
+                    <div class="recipe-stats">
+                        <span><strong>40</strong> min</span>
+                        <span><strong>12</strong> porções</span>
+                        <span class="difficulty facil">Fácil</span>
+                    </div>
+                    <div class="recipe-actions">
+                        <a href="editar-receita.html?id=3" class="btn btn-edit">Editar</a>
+                        <button class="btn btn-delete" data-id="3">Excluir</button>
+                        <span class="status draft">Rascunho</span>
+                    </div>
+                </div>
+            </article>
+
+
+        <div class="pagination">
+            <button class="btn btn-pagination" disabled>Anterior</button>
+            <button class="btn btn-pagination active">1</button>
+            <button class="btn btn-pagination">2</button>
+            <button class="btn btn-pagination">3</button>
+            <button class="btn btn-pagination">Próxima</button>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>© <span id="ano"></span> Receitas de Bolo — Painel Administrativo</p>
+            <nav aria-label="Links do rodapé">
+                <ul class="footer-nav">
+                    <li><a href="../index.html">Voltar ao Site</a></li>
+                    <li><a href="configuracoes.html">Configurações</a></li>
+                    <li><a href="ajuda.html">Ajuda</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>

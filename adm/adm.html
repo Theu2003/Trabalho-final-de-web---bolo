@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Painel Administrativo — Receitas de Bolo</title>
+    <link rel="stylesheet" href="../CSS/style.css" />
+    <link rel="stylesheet" href="../CSS/admin.css" />
+    <script src="../JS/admin.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="../index.html" class="logo" aria-label="Receitas de Bolo — voltar ao início">Receitas de Bolo</a>
+            <nav aria-label="Navegação principal">
+                <ul class="main-nav">
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="../receitas.html">Receitas</a></li>
+                    <li><a href="../contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="admin-page">
+        <div class="page-content">
+            <h1>Painel Administrativo</h1>
+            
+            <section class="admin-stats">
+                <div class="stat-card">
+                    <h3>Receitas Cadastradas</h3>
+                    <p class="stat-value" id="total-recipes">24</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Usuários Registrados</h3>
+                    <p class="stat-value" id="total-users">15</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Mensagens Recebidas</h3>
+                    <p class="stat-value" id="total-messages">8</p>
+                </div>
+            </section>
+
+            <section class="admin-actions">
+                <h2>Ações Rápidas</h2>
+                <div class="action-buttons">
+                    <a href="nova-receita.html" class="btn btn-admin">Adicionar Receita</a>
+                    <a href="gerenciar-receitas.html" class="btn btn-admin">Gerenciar Receitas</a>
+                    <a href="mensagens.html" class="btn btn-admin">Ver Mensagens</a>
+                </div>
+            </section>
+
+            <section class="recent-content">
+                <h2>Últimas Receitas Adicionadas</h2>
+                <div class="admin-recipe-grid">
+                    <article class="admin-recipe-card">
+                        <img src="../images/bolo_de_chocolate.jpg" alt="Bolo de Chocolate">
+                        <div class="admin-recipe-info">
+                            <h3>Bolo de Chocolate Premium</h3>
+                            <p class="recipe-meta">Adicionado em: 15/08/2023</p>
+                            <div class="recipe-actions">
+                                <button class="btn btn-edit">Editar</button>
+                                <button class="btn btn-delete">Excluir</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="admin-recipe-card">
+                        <img src="../images/bolo_de_cenoura.jpg" alt="Bolo de Cenoura">
+                        <div class="admin-recipe-info">
+                            <h3>Bolo de Cenoura com Cobertura</h3>
+                            <p class="recipe-meta">Adicionado em: 10/08/2023</p>
+                            <div class="recipe-actions">
+                                <button class="btn btn-edit">Editar</button>
+                                <button class="btn btn-delete">Excluir</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="admin-recipe-card">
+                        <img src="../images/Bolo_baunilha.jpg" alt="Bolo de Baunilha">
+                        <div class="admin-recipe-info">
+                            <h3>Bolo de Baunilha com Frutas</h3>
+                            <p class="recipe-meta">Adicionado em: 05/08/2023</p>
+                            <div class="recipe-actions">
+                                <button class="btn btn-edit">Editar</button>
+                                <button class="btn btn-delete">Excluir</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>© <span id="ano"></span> Receitas de Bolo — Painel Administrativo</p>
+            <nav aria-label="Links do rodapé">
+                <ul class="footer-nav">
+                    <li><a href="../index.html">Voltar ao Site</a></li>
+                    <li><a href="configuracoes.html">Configurações</a></li>
+                    <li><a href="ajuda.html">Ajuda</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>

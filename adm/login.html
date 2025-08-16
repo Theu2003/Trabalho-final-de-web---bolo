@@ -1,38 +1,75 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bolo na Hora - Área Administrativa</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/admin.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login — Painel Administrativo</title>
+    <link rel="stylesheet" href="../CSS/style.css" />
+    <link rel="stylesheet" href="../CSS/login.css" />
+    <script src="../JS/login.js" defer></script>
 </head>
 <body class="login-page">
-    <div class="login-container">
-        <div class="logo">
-            <img src="../images/logo.png" alt="Bolo na Hora">
-            <h1>Área Administrativa</h1>
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="../index.html" class="logo" aria-label="Receitas de Bolo — voltar ao início">Receitas de Bolo</a>
+            <nav aria-label="Navegação principal">
+                <ul class="main-nav">
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="../receitas.html">Receitas</a></li>
+                    <li><a href="../contato.html">Contato</a></li>
+                </ul>
+            </nav>
         </div>
-        
-        <form id="loginForm" class="login-form">
-            <div class="form-group">
-                <label for="username">Usuário</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="password">Senha</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            
-            <button type="submit" class="btn btn-primary">Entrar</button>
-            
-            <div class="form-footer">
-                <a href="#">Esqueci minha senha</a>
-            </div>
-        </form>
-    </div>
+    </header>
 
-    <script src="../js/auth.js"></script>
+    <main class="login-container">
+        <div class="login-box">
+            <div class="login-header">
+                <h1>Acesso Administrativo</h1>
+                <p>Entre com suas credenciais para acessar o painel</p>
+            </div>
+            
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" required placeholder="••••••••">
+                </div>
+                
+                <div class="form-options">
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember" name="remember">
+                        <label for="remember">Lembrar-me</label>
+                    </div>
+                    <a href="recuperar-senha.html" class="forgot-password">Esqueceu a senha?</a>
+                </div>
+                
+                <button type="submit" class="btn btn-login">Entrar</button>
+                
+                <div class="login-feedback" id="loginFeedback"></div>
+            </form>
+            
+            <div class="login-footer">
+                <p>Problemas para acessar? <a href="../contato.html">Entre em contato</a></p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>© <span id="ano"></span> Receitas de Bolo — Todos os direitos reservados.</p>
+            <nav aria-label="Links do rodapé">
+                <ul class="footer-nav">
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="../receitas.html">Receitas</a></li>
+                    <li><a href="../contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
 </body>
 </html>
