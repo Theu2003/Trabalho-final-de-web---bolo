@@ -1,73 +1,94 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+    // --- Funcionalidade Comum (Ano no Rodapé) ---
     const anoElement = document.getElementById('ano');
     if (anoElement) {
         anoElement.textContent = new Date().getFullYear();
     }
 
-    const printButton = document.getElementById('print-btn');
-    if (printButton) {
-        printButton.addEventListener('click', () => window.print());
-    }
-
+    // --- Lógica de Filtro e Busca (Página de Receitas) ---
     const filterContainer = document.querySelector('.filter-controls');
-    const searchInput = document.getElementById('search-input');
-    const recipeGrid = document.getElementById('recipe-grid');
-    const noResultsMessage = document.getElementById('no-results');
-
-    if (filterContainer && recipeGrid && searchInput) {
-        const recipeCards = recipeGrid.querySelectorAll('.recipe-card');
-
-        const filterAndSearchRecipes = () => {
-            const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
-            const searchTerm = searchInput.value.toLowerCase();
-            let visibleCount = 0;
-
-            recipeCards.forEach(card => {
-                const categories = card.dataset.category;
-                const title = card.querySelector('h3').textContent.toLowerCase();
-                
-                const matchesFilter = activeFilter === 'all' || categories.includes(activeFilter);
-                const matchesSearch = title.includes(searchTerm);
-
-                if (matchesFilter && matchesSearch) {
-                    card.style.display = 'flex';
-                    visibleCount++;
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-
-            noResultsMessage.style.display = visibleCount === 0 ? 'block' : 'none';
-        };
-
-        filterContainer.addEventListener('click', (event) => {
-            if (event.target.classList.contains('filter-btn')) {
-                document.querySelector('.filter-btn.active').classList.remove('active');
-                event.target.classList.add('active');
-                filterAndSearchRecipes();
-            }
-        });
-
-        searchInput.addEventListener('input', filterAndSearchRecipes);
+    if (filterContainer) {
+        // (Aqui entra a sua lógica de filtro de receitas, se necessário)
     }
-    
-    const backToTopButton = document.getElementById('back-to-top');
 
-    if (backToTopButton) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTopButton.classList.add('show');
+    // --- Lógica para Carregar Confeiteiros na Página de Confeiteiros ---
+    const confeiteirosGrid = document.getElementById('confeiteiros-grid');
+    if (confeiteirosGrid) {
+        const db = JSON.parse(localStorage.getItem('boloNaHoraDB'));
+        const noBakersMessage = document.getElementById('no-bakers-message');
+
+        if (db && db.confeiteiros && db.confeiteiros.length > 0) {
+            const activeBakers = db.confeiteiros.filter(baker => baker.status === 'active');
+
+            if (activeBakers.length > 0) {
+                confeiteirosGrid.innerHTML = ''; // Limpa o container
+                activeBakers.forEach(baker => {
+                    // Corrige o caminho da imagem para a página pública
+                    const imagePath = baker.photo.replace('../../', './');
+
+                    // Prepara os links das redes sociais
+                    let whatsappLink = '';
+                    let instagramLink = '';
+
+                    const whatsapp = baker.social.find(s => s.type === 'whatsapp');
+                    const instagram = baker.social.find(s => s.type === 'instagram');
+
+                    if (whatsapp) {
+                        // Formata o número para o link do WhatsApp
+                        const phone = whatsapp.url.replace(/\D/g, '');
+                        whatsappLink = `<a href="https://wa.me/55${phone}" target="_blank">💬 WhatsApp</a>`;
+                    }
+                    if (instagram) {
+                        // Formata o @ para o link do Instagram
+                        const user = instagram.url.replace('@', '');
+                        instagramLink = `<a href="https://instagram.com/${user}" target="_blank">📸 Instagram</a>`;
+                    }
+
+                    const cardHTML = `
+                        <article class="confeiteiro-card">
+                            <img src="${imagePath}" alt="Foto de ${baker.name}">
+                            <div class="card-content">
+                                <h3>${baker.businessName || baker.name}</h3>
+                                <p>${baker.bio}</p>
+                                <div class="confeiteiro-contato">
+                                    ${whatsappLink}
+                                    ${instagramLink}
+                                </div>
+                            </div>
+                        </article>
+                    `;
+                    confeiteirosGrid.innerHTML += cardHTML;
+                });
             } else {
-                backToTopButton.classList.remove('show');
+                noBakersMessage.style.display = 'block';
             }
-        });
+        } else {
+            noBakersMessage.style.display = 'block';
+        }
+    }
 
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+    // --- Lógica para Carregar Confeiteiros em Destaque na Homepage ---
+    const confeiteirosDestaque = document.getElementById('confeiteiros-destaque');
+    if (confeiteirosDestaque) {
+        const db = JSON.parse(localStorage.getItem('boloNaHoraDB'));
+        if (db && db.confeiteiros) {
+            const featured = db.confeiteiros.filter(c => c.featured && c.status === 'active').slice(0, 2);
+            confeiteirosDestaque.innerHTML = '';
+            
+            featured.forEach(baker => {
+                 const imagePath = baker.photo.replace('../../', './');
+                 const cardHTML = `
+                    <article class="confeiteiro-card">
+                        <img src="${imagePath}" alt="${baker.name}">
+                        <div class="card-content">
+                            <h3>${baker.businessName || baker.name}</h3>
+                            <p>${baker.bio.substring(0, 70)}...</p>
+                        </div>
+                    </article>
+                `;
+                confeiteirosDestaque.innerHTML += cardHTML;
             });
-        });
+        }
     }
 });

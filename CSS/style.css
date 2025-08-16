@@ -312,6 +312,63 @@ textarea { resize: vertical; min-height: 120px; }
     visibility: visible;
 }
 
+/* --- Estilos para Cards de Confeiteiros --- */
+.confeiteiro-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--subtle-shadow);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid var(--border-color);
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    text-align: center; /* Centraliza o conteúdo do card */
+}
+
+.confeiteiro-card .card-content {
+    padding: 16px;
+    flex-grow: 1; /* Faz o conteúdo ocupar o espaço disponível */
+    display: flex;
+    flex-direction: column;
+}
+
+.confeiteiro-card h3 {
+    margin-top: 0;
+    color: var(--green-primary);
+}
+
+.confeiteiro-card p {
+    flex-grow: 1; /* Empurra o rodapé do card para baixo */
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.confeiteiro-contato {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap; /* Permite que os links quebrem a linha se necessário */
+    font-weight: 600;
+}
+
+.confeiteiro-contato a {
+    background-color: #f0f0f0;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.confeiteiro-contato a:hover {
+    background-color: #e0e0e0;
+}
+
 @media (max-width: 800px) {
     .header-inner, .footer-inner, .intro-container, .form-row {
         flex-direction: column;
