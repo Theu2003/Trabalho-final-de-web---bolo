@@ -4,10 +4,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if (anoElement) anoElement.textContent = new Date().getFullYear();
 
     // --- BANCO DE DADOS SIMULADO (localStorage) ---
-    let confeiteirosDB = JSON.parse(localStorage.getItem('confeiteirosDB')) || [];
+    // Garante que o objeto principal do DB exista
+    let boloNaHoraDB = JSON.parse(localStorage.getItem('boloNaHoraDB')) || { confeiteiros: [], receitas: [] };
 
     const saveToDB = () => {
-        localStorage.setItem('confeiteirosDB', JSON.stringify(confeiteirosDB));
+        localStorage.setItem('boloNaHoraDB', JSON.stringify(boloNaHoraDB));
     };
 
     // --- LÓGICA DE CADA PÁGINA ---
@@ -26,12 +27,12 @@ document.addEventListener('DOMContentLoaded', function() {
         
         tableBody.innerHTML = ''; 
 
-        if (confeiteirosDB.length === 0) {
+        if (boloNaHoraDB.confeiteiros.length === 0) {
             tableBody.innerHTML = '<tr><td colspan="5" style="text-align:center;">Nenhum confeiteiro cadastrado. <a href="adicionar.html">Adicionar o primeiro?</a></td></tr>';
             return;
         }
 
-        confeiteirosDB.forEach(baker => {
+        boloNaHoraDB.confeiteiros.forEach(baker => {
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td>${baker.businessName}</td>
@@ -49,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
             button.addEventListener('click', (e) => {
                 const bakerId = e.target.dataset.id;
                 if (confirm('Tem certeza que deseja excluir este confeiteiro?')) {
-                    confeiteirosDB = confeiteirosDB.filter(b => b.id != bakerId);
+                    boloNaHoraDB.confeiteiros = boloNaHoraDB.confeiteiros.filter(b => b.id != bakerId);
                     saveToDB();
                     renderBakersTable();
                 }
@@ -67,9 +68,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const isEditing = !!bakerId;
 
         if (isEditing) {
-            const baker = confeiteirosDB.find(b => b.id == bakerId);
+            const baker = boloNaHoraDB.confeiteiros.find(b => b.id == bakerId);
             if (baker) {
-                // Preenche o formulário com dados existentes
                 document.getElementById('businessName').value = baker.businessName;
                 document.getElementById('name').value = baker.name;
                 document.getElementById('phone').value = baker.phone;
@@ -92,14 +92,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 bio: document.getElementById('bio').value,
                 status: document.getElementById('status').value,
                 featured: document.getElementById('featured').value === 'true',
-                photo: '../../images/default-avatar.jpg' // Simulação de foto
+                // Adiciona uma foto padrão se nenhuma for enviada
+                photo: '../../images/default-avatar.jpg', 
+                // Inicializa as redes sociais de forma correta
+                social: [
+                    { type: 'whatsapp', url: document.getElementById('phone').value },
+                    { type: 'instagram', url: document.getElementById('instagram').value }
+                ]
             };
 
             if (isEditing) {
-                const index = confeiteirosDB.findIndex(b => b.id == bakerId);
-                confeiteirosDB[index] = bakerData;
+                const index = boloNaHoraDB.confeiteiros.findIndex(b => b.id == bakerId);
+                boloNaHoraDB.confeiteiros[index] = bakerData;
             } else {
-                confeiteirosDB.push(bakerData);
+                boloNaHoraDB.confeiteiros.push(bakerData);
             }
 
             saveToDB();
