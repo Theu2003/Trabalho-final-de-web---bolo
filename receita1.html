@@ -1,56 +1,102 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bolo de Chocolate</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bolo de Chocolate — Receitas de Bolo</title>
+    <meta name="description" content="Receita de bolo de chocolate: ingredientes e passo a passo." />
+    <link rel="stylesheet" href="CSS/style.css" />
 </head>
 <body>
-    <header>
-        <h1 class="logo">Receitas de Bolo</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="receitas.html">Receitas</a></li>
-                <li><a href="contato.html" class="active">Contato</a></li>
-            </ul>
-        </nav>
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">Receitas de Bolo</a>
+            <nav aria-label="Navegação principal">
+                <ul class="main-nav">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="receitas.html" class="active" aria-current="page">Receitas</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <h1>Bolo de Chocolate</h1>
+    <main class="page-content" role="main">
+        <article class="receita">
+            <h1>Bolo de Chocolate</h1>
 
-        <section id="ingredientes">
-            <h2>Ingredientes</h2>
-            <ul>
-                <li>1 xícara de chocolate em pó</li>
-                <li>1 xícara de açúcar</li>
-                <li>1 xícara de farinha de trigo</li>
-                <li>1/2 xícara de manteiga</li>
-                <li>3 ovos</li>
-                <li>1 colher de sopa de fermento em pó</li>
-                <li>1 xícara de leite</li>
-            </ul>
-        </section>
+            <img class="recipe-image" src="images/bolo_de_chocolate.jpg" alt="Bolo de chocolate denso e com cobertura brilhante" />
 
-        <section id="instrucoes">
-            <h2>Instruções</h2>
-            <p>1. Preaqueça o forno a 180°C.</p>
-            <p>2. Em uma tigela, misture o chocolate em pó, o açúcar e a farinha de trigo.</p>
-            <p>3. Adicione a manteiga e misture bem.</p>
-            <p>4. Incorpore os ovos um a um, mexendo bem após cada adição.</p>
-            <p>5. Adicione o fermento e o leite, misturando até obter uma massa homogênea.</p>
-            <p>6. Despeje a massa em uma forma untada e enfarinhada.</p>
-            <p>7. Leve ao forno por cerca de 30 minutos ou até que um palito saia limpo.</p>
-            <p>8. Deixe esfriar antes de desenformar e servir.</p>
+            <div class="recipe-meta">
+                <div class="meta-item">
+                    <span>🕒 Prep:</span>
+                    <strong>15 min</strong>
+                </div>
+                <div class="meta-item">
+                    <span>🍳 Cozimento:</span>
+                    <strong>30 min</strong>
+                </div>
+                <div class="meta-item">
+                    <span>🍰 Rendimento:</span>
+                    <strong>8 porções</strong>
+                </div>
+                <div class="meta-item">
+                    <span>⭐ Dificuldade:</span>
+                    <strong>Fácil</strong>
+                </div>
+            </div>
 
-            <h3>Vídeo Tutorial</h3>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/OVGrCE5P3wk" title="Vídeo tutorial de Bolo de Chocolate" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </section>
-        <footer>
-            <p></p>
-        </footer>
+            <div class="recipe-body">
+                <section id="ingredientes" class="recipe-ingredients">
+                    <h2>Ingredientes</h2>
+                    <ul>
+                        <li>1 xícara de chocolate em pó</li>
+                        <li>1 xícara de açúcar</li>
+                        <li>1 xícara de farinha de trigo</li>
+                        <li>1/2 xícara de manteiga</li>
+                        <li>3 ovos</li>
+                        <li>1 colher de sopa de fermento em pó</li>
+                        <li>1 xícara de leite</li>
+                    </ul>
+                </section>
+
+                <section id="instrucoes" class="recipe-instructions">
+                    <h2>Instruções</h2>
+                    <ol>
+                        <li>Preaqueça o forno a 180°C.</li>
+                        <li>Em uma tigela, misture o chocolate em pó, o açúcar e a farinha de trigo.</li>
+                        <li>Adicione a manteiga e misture bem.</li>
+                        <li>Incorpore os ovos um a um, mexendo bem após cada adição.</li>
+                        <li>Adicione o fermento e o leite, misturando até obter uma massa homogênea.</li>
+                        <li>Despeje a massa em uma forma untada e enfarinhada.</li>
+                        <li>Leve ao forno por cerca de 30 minutos ou até que um palito saia limpo.</li>
+                        <li>Deixe esfriar antes de desenformar e servir.</li>
+                    </ol>
+                </section>
+            </div>
+            
+            <div class="form-actions" style="margin-top: 24px;">
+                 <button class="btn btn-print" onclick="window.print()">🖨️ Imprimir Receita</button>
+            </div>
+
+            <div class="embed-wrap" style="margin-top: 30px;">
+                <h3>Vídeo tutorial</h3>
+                <iframe
+                    src="https://www.youtube.com/embed/OVGrCE5P3wk"
+                    title="Vídeo tutorial de Bolo de Chocolate"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    loading="lazy"></iframe>
+            </div>
+        </article>
     </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>© <span id="ano"></span> Receitas de Bolo</p>
+        </div>
+    </footer>
+    <script src="js/script.js" defer></script>
+    <script>document.getElementById('ano').textContent = new Date().getFullYear();</script>
 </body>
 </html>

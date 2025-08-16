@@ -1,291 +1,364 @@
-header, nav, .logo {
-    font-family: 'Arial', sans-serif;
+/* CSS/style.css - Versão com simplificações sutis */
+
+/* 1. CONFIGURAÇÕES GLOBAIS E VARIÁVEIS */
+:root {
+    --green-primary: #317550; /* Cor primária unificada */
+    --accent: #007bff;
+    --muted: #666666;
+    --bg: #f4f4f4;
+    --card-bg: #ffffff;
+    --border-color: #e0e0e0; /* Cor de borda para consistência */
+    --subtle-shadow: 0 2px 8px rgba(0,0,0,0.07); /* Sombra mais suave */
+    --max-width: 1200px;
+    --page-padding: 16px;
 }
 
-h1, h2, h3 {
-    font-family: 'Times New Roman', Times, serif;
-}
-
-body, p, li, input, label, button {
-    font-family: 'Courier New', Courier, monospace;
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    color: #333;
-    line-height: 1.6;
-    max-width: 1200px;
-    margin: 0 auto;
+* {
+    box-sizing: border-box;
+    margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
 }
 
-header {
-    background: #317550;
-    padding: 40px;
+html, body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: #333;
+    background-color: var(--bg);
+    line-height: 1.6; /* Levemente mais espaçado para leitura */
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+a:hover, a:focus {
+    color: var(--green-primary);
+    text-decoration: underline;
+}
+
+/* Foco para acessibilidade, agora mais integrado */
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* 2. LAYOUT ESTRUTURAL */
+.page-content {
+    max-width: var(--max-width);
+    margin: 30px auto;
+    padding: 0 var(--page-padding);
+}
+
+.site-header {
+    background: var(--green-primary);
+    color: #fff;
+    padding: 10px var(--page-padding);
+    /* Sombra removida para um look mais plano */
+}
+
+.header-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.site-footer {
+    background: var(--green-primary); /* Cor unificada com o header */
+    color: #fff;
+    padding: 24px var(--page-padding);
+    margin-top: 30px;
+}
+
+.footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid #0056b3;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 
-header .logo {
-    font-size: 32px;
+/* 3. COMPONENTES */
+
+/* Navegação */
+.logo {
+    font-size: 1.6rem;
+    font-weight: 700;
     color: #fff;
-    font-weight: bold;
 }
 
-header nav ul {
+.main-nav, .footer-nav {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 18px;
 }
 
-header nav a {
+.main-nav a {
+    color: #fff;
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: 6px;
+}
+.main-nav a:hover, .main-nav a:focus {
+    background: rgba(255,255,255,0.12);
     text-decoration: none;
     color: #fff;
-    font-size: 18px;
-    font-weight: 500;
+}
+.main-nav a.active {
+    background: #fff;
+    color: var(--green-primary);
+}
+.footer-nav a {
+    color: #fff;
 }
 
-header nav a:hover,
-header nav a.active {
-    text-decoration: underline;
-    color: #1e1281;
-}
-
-.banner img {
-    width: 100%;
-    height: auto;
-    display: block;
+/* Caixas de Conteúdo (Painéis) */
+.intro, .destaques, .receita, .contato, .filter-container {
+    background: var(--card-bg);
+    padding: 24px;
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.intro {
-    text-align: center;
-    margin: 40px 20px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.intro h1 {
-    font-size: 36px;
-    color: #007bff;
-}
-
-.intro p {
-    font-size: 18px;
-    color: #666;
-}
-
-.intro img {
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-top: 20px;
-}
-
-.destaques {
-    text-align: center;
-    margin: 40px 20px;
-}
-
-.destaques h2 {
-    font-size: 32px;
-    color: #2600ff;
+    box-shadow: var(--subtle-shadow);
     margin-bottom: 20px;
 }
 
-.destaques-container {
+/* Cards (Destaques e Receitas) */
+.destaque-item, .recipe-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--subtle-shadow);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid var(--border-color); /* Borda sutil ao invés de sombra forte */
+}
+.destaque-item:hover, .recipe-card:hover {
+    transform: translateY(-3px); /* Movimento mais sutil */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.destaque-item img, .recipe-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+}
+.recipe-card img {
+    height: 180px;
+}
+
+/* Estilos específicos de cada tipo de Card */
+.destaque-item {
+    text-align: center;
+}
+.destaque-item h3 { margin: 12px 0 8px; }
+.destaque-item p { padding: 0 12px 12px; font-size: 0.95rem; color: var(--muted); }
+
+.recipe-card {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    text-decoration: none;
+    color: #333;
+}
+.recipe-card-content { padding: 16px; }
+.recipe-card h3 { margin-top: 0; font-size: 1.3rem; color: var(--green-primary); }
+.recipe-card p { font-size: 0.95rem; color: var(--muted); }
+
+/* Grid de Destaques e Receitas */
+.destaques-container, .recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
+}
+
+/* Seção de Introdução (Homepage) */
+.intro-container {
+    display: flex;
+    align-items: center;
+    gap: 24px;
     flex-wrap: wrap;
 }
 
-.destaque-item {
+.intro-column, .intro-image {
     flex: 1;
-    min-width: 250px;
-    text-align: center;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    min-width: 300px;
 }
 
-.destaque-item img {
+.intro-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Alinha o conteúdo verticalmente */
+}
+
+.intro-content p {
+    margin-bottom: 24px; /* Adiciona um espaço claro abaixo do parágrafo */
+}
+
+.intro-image img {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-bottom: 2px solid #ddd;
-}
-
-.destaque-item h3 {
-    padding: 10px;
-    font-size: 22px;
-    color: #060af8;
-}
-
-#ingredientes,
-#instrucoes {
-    margin: 20px 0;
-    padding: 20px;
+    height: auto;
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: block;
 }
 
-#ingredientes {
-    background-color: #e3f2fd;
+/* O estilo do .cta-row não precisa mudar */
+.cta-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+/* Página de Receita Individual */
+.recipe-image {
+    width: 100%;
+    max-width: 720px;
+    margin: 12px auto 24px;
+    border-radius: 10px;
+    display: block;
+}
+.recipe-meta {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 16px;
+    background: var(--bg);
+    padding: 16px;
+    border-radius: 8px;
+    margin: 16px 0;
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+.meta-item { font-size: 0.9rem; color: var(--muted); }
+.meta-item strong { display: block; font-size: 1rem; color: #333; }
+.recipe-body {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    margin-top: 24px;
+}
+.recipe-ingredients ul, .recipe-instructions ol {
+    padding-left: 20px;
 }
 
-#ingredientes h2 {
-    font-size: 24px;
-    color: #0026ff;
-    margin-bottom: 10px;
+/* Filtro e Busca */
+.filter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
 }
-
-#ingredientes ul {
-    list-style-type: disc;
-    margin-left: 20px;
-    color: #333;
+.filter-controls { display: flex; gap: 8px; flex-wrap: wrap; }
+.filter-btn {
+    /* Estilo "ghost button" para um visual mais limpo */
+    background-color: transparent;
+    color: var(--muted);
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
 }
+.filter-btn:hover { background-color: #f0f0f0; color: #333; }
+.filter-btn.active { background-color: var(--green-primary); color: #fff; border-color: var(--green-primary); }
 
-#ingredientes li {
-    font-size: 18px;
-    margin-bottom: 5px;
-}
-
-#instrucoes {
-    background-color: #fff3e0;
-}
-
-#instrucoes h2 {
-    font-size: 24px;
-    color: #ff7043;
-    margin-bottom: 10px;
-}
-
-#instrucoes p {
-    font-size: 18px;
-    margin-bottom: 10px;
-    line-height: 1.5;
-    color: #333;
-}
-
-#instrucoes h3 {
-    font-size: 22px;
-    color: #333;
+.no-results-message {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: transparent; /* Mais integrado ao fundo */
+    border-radius: 12px;
+    color: var(--muted);
     margin-top: 20px;
 }
 
-iframe {
-    margin-top: 10px;
+/* Formulário e Botões */
+.form-group { margin-bottom: 12px; }
+.form-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.form-row .form-group { flex: 1; min-width: 200px; }
+label { display: block; font-weight: 600; margin-bottom: 6px; }
+input, select, textarea {
     width: 100%;
-    max-width: 560px;
-    height: 315px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
-
-a:focus {
-    outline: 2px dashed #00448d;
+input:focus, select:focus, textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.15);
+    outline: none;
 }
+textarea { resize: vertical; min-height: 120px; }
+.required { color: #c0392b; }
 
-button:hover, button:focus {
-    background-color: #aa3410;
+.btn {
+    background: var(--green-primary);
     color: #fff;
-}
-
-.flex-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.flex-item {
-    flex: 1;
-    min-width: 200px;
-}
-
-.contato {
-    margin: 20px 0;
-    padding: 20px;
-    background-color: #e8f5e9;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.contato h2 {
-    font-size: 24px;
-    color: #028b09;
-    margin-bottom: 10px;
-}
-
-.contato p, .contato ul {
-    font-size: 18px;
-    color: #333;
-}
-
-.contato ul {
-    list-style-type: none;
-}
-
-.contato li {
-    margin-bottom: 10px;
-}
-
-footer {
-    background: #039741;
-    color: #721212;
-    padding: 40px;
-    text-align: center;
-    border-top: 2px solid #0056b3;
-    margin-top: 40px;
-}
-
-footer hr {
-    border: 0;
-    height: 1px;
-    background: #0056b3; /* Cor da barra horizontal */
-    margin: 20px 0;
-}
-
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-footer p {
-    margin: 0;
-    font-size: 16px;
-}
-
-footer nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0 0;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-footer nav a {
-    color: #ffd700;
+    border: none;
+    padding: 10px 18px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
     text-decoration: none;
-    font-size: 16px;
+    transition: background-color 0.2s;
+}
+.btn:hover, .btn:focus { background: #2a6345; text-decoration: none; }
+.btn-print { background-color: var(--accent); }
+.btn-print:hover { background-color: #0056b3; }
+
+/* Botão Voltar ao Topo */
+.back-to-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--green-primary);
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+    z-index: 1000;
+}
+.back-to-top-btn.show {
+    opacity: 1;
+    visibility: visible;
 }
 
-footer nav a:hover {
-    text-decoration: underline;
+/* 4. RESPONSIVIDADE E IMPRESSÃO */
+@media (max-width: 800px) {
+    .header-inner, .footer-inner, .intro-container, .form-row {
+        flex-direction: column;
+    }
+    .header-inner, .filter-container {
+        align-items: stretch;
+    }
+    .footer-inner {
+        text-align: center;
+    }
+    .recipe-body {
+        grid-template-columns: 1fr;
+    }
 }
 
-form button {
-    display: block;
-    margin: 20px auto 0 auto;
+@media print {
+    .site-header, .site-footer, .btn-print, .embed-wrap, .destaques, .cta-row, .filter-container, .back-to-top-btn {
+        display: none;
+    }
+    body { background-color: #fff; }
+    .content-box, .receita, .contato {
+        box-shadow: none;
+        border: none;
+        margin: 0;
+        padding: 0;
+    }
+    .recipe-body { display: block; }
+    a { color: #000; text-decoration: none; }
 }

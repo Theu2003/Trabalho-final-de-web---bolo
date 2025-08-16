@@ -1,56 +1,91 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Receitas de Bolo</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Início — Receitas de Bolo</title>
+    <meta name="description" content="Receitas de bolo caseiras: passo a passo, ingredientes e dicas para bolos deliciosos." />
+    <link rel="stylesheet" href="CSS/style.css" />
+    <script src="JS/script.js" defer></script>
 </head>
 <body>
-    <header>
-        <h1 class="logo">Receitas de Bolo</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="receitas.html">Receitas</a></li>
-                <li><a href="contato.html" class="active">Contato</a></li>
-            </ul>
-        </nav>
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="logo" aria-label="Receitas de Bolo — voltar ao início">Receitas de Bolo</a>
+            <nav aria-label="Navegação principal">
+                <ul class="main-nav">
+                    <li><a href="index.html" class="active" aria-current="page">Início</a></li>
+                    <li><a href="receitas.html">Receitas</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
-        <section class="intro">
-            <h1>Mundo das Receitas de Bolo</h1>
-            <p>Receitas incríveis e aprenda a preparar bolos deliciosos.</p>
-            <img src="images/bolo.jpg" alt="Imagem de Bolo">
-        </section>
-
-        <section class="destaques">
-            <h2>Receitas Populares</h2>
-            <div class="destaques-container">
-                <div class="destaque-item">
-                    <a href="receita1.html">
-                        <img src="images/bolo_de_chocolate.jpg" alt="Bolo de Chocolate">
-                        <h3>Bolo de Chocolate</h3>
-                    </a>
+        <section class="intro page-content">
+            <div class="intro-container">
+                <div class="intro-column">
+                    <div class="intro-content">
+                        <h1>Bem-vindo(a) às Receitas de Bolo</h1>
+                        <p>Encontre receitas fáceis e deliciosas para todos os gostos — desde o clássico bolo de chocolate até opções especiais para festas.</p>
+                    </div>
+                    <div class="cta-row">
+                        <a class="btn" href="receitas.html">Ver Receitas</a>
+                        <a class="btn" href="contato.html">Fale conosco</a>
+                    </div>
                 </div>
-                <div class="destaque-item">
-                    <a href="receita2.html">
-                        <img src="images/bolo_de_cenoura.jpg" alt="Bolo de Cenoura">
-                        <h3>Bolo de Cenoura</h3>
-                    </a>
-                </div>
-                <div class="destaque-item">
-                    <a href="receita3.html">
-                        <img src="images/bolo_baunilha.jpg" alt="Bolo de Baunilha">
-                        <h3>Bolo de Baunilha</h3>
-                    </a>
+                <div class="intro-image">
+                    <img src="images/bolo.jpg" alt="Bolo caseiro decorado com frutas vermelhas em uma mesa" />
                 </div>
             </div>
         </section>
-        <footer>
-            <p></p>
-        </footer>
+
+        <section class="destaques page-content">
+            <h2>Destaques</h2>
+            <div class="destaques-container">
+                <article class="destaque-item">
+                    <img src="images/bolo_de_chocolate.jpg" alt="Fatia de bolo de chocolate" />
+                    <h3><a href="receita1.html">Bolo de Chocolate</a></h3>
+                    <p>Um clássico irresistível — cobertura cremosa e massa fofa.</p>
+                </article>
+
+                <article class="destaque-item">
+                    <img src="images/bolo_de_cenoura.jpg" alt="Bolo de cenoura com cobertura" />
+                    <h3><a href="receita2.html">Bolo de Cenoura</a></h3>
+                    <p>Simples, rápido e perfeito para o lanche da tarde.</p>
+                </article>
+
+                <article class="destaque-item">
+                    <img src="images/Bolo_baunilha.jpg" alt="Bolo de baunilha decorado" />
+                    <h3><a href="receita3.html">Bolo de Baunilha</a></h3>
+                    <p>Leve e perfumado — ideal para festas e recheios variados.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="page-content">
+            <h2>Como usar o site</h2>
+            <ol>
+                <li>Navegue pelas opções na página <a href="receitas.html">Receitas</a>.</li>
+                <li>Siga os ingredientes e o passo a passo na página da receita.</li>
+                <li>Tem dúvida ou sugestão? Envie pela <a href="contato.html">página de contato</a>.</li>
+            </ol>
+        </section>
     </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>© <span id="ano"></span> Receitas de Bolo — Todos os direitos reservados.</p>
+            <nav aria-label="Links do rodapé">
+                <ul class="footer-nav">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="receitas.html">Receitas</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
 </body>
 </html>

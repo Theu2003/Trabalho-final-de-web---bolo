@@ -1,53 +1,75 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bolo de Cenoura</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bolo de Cenoura — Receitas de Bolo</title>
+    <meta name="description" content="Receita de bolo de cenoura: ingredientes e passo a passo." />
+    <link rel="stylesheet" href="CSS/style.css" />
 </head>
 <body>
-    <header>
-        <h1 class="logo">Receitas de Bolo</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="receitas.html">Receitas</a></li>
-                <li><a href="contato.html" class="active">Contato</a></li>
-            </ul>
-        </nav>
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">Receitas de Bolo</a>
+            <nav aria-label="Navegação principal">
+                <ul class="main-nav">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="receitas.html" class="active" aria-current="page">Receitas</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <h1>Bolo de Cenoura</h1>
+    <main class="page-content" role="main">
+        <article class="receita">
+            <h1>Bolo de Cenoura</h1>
 
-        <section id="ingredientes">
-            <h2>Ingredientes</h2>
-            <ul>
-                <li>2 xícaras de farinha de trigo</li>
-                <li>1 xícara de açúcar</li>
-                <li>1 xícara de cenoura ralada</li>
-                <li>1/2 xícara de óleo</li>
-                <li>3 ovos</li>
-                <li>1 colher de sopa de fermento em pó</li>
-                <li>1 pitada de sal</li>
-            </ul>
-        </section>
+            <img class="recipe-image" src="images/bolo_de_cenoura.jpg" alt="Bolo de cenoura" />
 
-        <section id="instrucoes">
-            <h2>Instruções</h2>
-            <p>1. Preaqueça o forno a 180°C e unte uma forma.</p>
-            <p>2. Em uma tigela, misture a farinha, o açúcar, o fermento e o sal.</p>
-            <p>3. Adicione a cenoura ralada, o óleo e os ovos, e misture bem.</p>
-            <p>4. Despeje a massa na forma e leve ao forno por cerca de 40 minutos.</p>
-            <p>5. Deixe esfriar antes de desenformar e servir.</p>
+            <section id="ingredientes" class="contato">
+                <h2>Ingredientes</h2>
+                <ul>
+                    <li>2 xícaras de farinha de trigo</li>
+                    <li>1 xícara de açúcar</li>
+                    <li>1 xícara de cenoura ralada</li>
+                    <li>1/2 xícara de óleo</li>
+                    <li>3 ovos</li>
+                    <li>1 colher de sopa de fermento em pó</li>
+                    <li>1 pitada de sal</li>
+                </ul>
+            </section>
 
-            <h3>Vídeo Tutorial</h3>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/VY3BIE2YcGM" title="Vídeo tutorial de Bolo de Cenoura" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </section>
-        <footer>
-            <p></p>
-        </footer>
+            <section id="instrucoes" class="contato">
+                <h2>Instruções</h2>
+                <ol>
+                    <li>Preaqueça o forno a 180°C e unte uma forma.</li>
+                    <li>Em uma tigela, misture a farinha, o açúcar, o fermento e o sal.</li>
+                    <li>Adicione a cenoura ralada, o óleo e os ovos, e misture bem.</li>
+                    <li>Despeje a massa na forma e leve ao forno por cerca de 40 minutos.</li>
+                    <li>Deixe esfriar antes de desenformar e servir.</li>
+                </ol>
+
+                <h3>Vídeo tutorial</h3>
+                <div class="embed-wrap">
+                    <iframe
+                        src="https://www.youtube.com/embed/VY3BIE2YcGM"
+                        title="Vídeo tutorial de Bolo de Cenoura"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                        loading="lazy"></iframe>
+                </div>
+            </section>
+        </article>
     </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>&copy; <span id="ano"></span> Receitas de Bolo</p>
+        </div>
+    </footer>
+    <script src="js/script.js" defer></script>
+    <script>document.getElementById('ano').textContent = new Date().getFullYear();</script>
 </body>
 </html>
