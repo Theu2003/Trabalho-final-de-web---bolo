@@ -5,9 +5,9 @@
 ## Colaboradores
 
   * Mateus Martins Peres
-  * Gustavo Rodrigues
-  * Jefferson Eduardo
-  * Victor Almeida
+  * Gustavo Rodrigues de Oliveira 
+  * Jefferson Eduardo Santos Lima 
+  * Victor Martins Almeida
 
 ## 1\. Visão Geral do Projeto
 
