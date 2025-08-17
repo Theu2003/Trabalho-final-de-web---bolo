@@ -1,4 +1,4 @@
-# Mateus Martins Peres, Gustavo Rodrigues, Jefferson Eduardo, Victor Martins
+# Mateus Martins Peres, Gustavo Rodrigues, Jefferson Eduardo, Victor Almeida
 
 ## Projeto: Trabalho Final
 
